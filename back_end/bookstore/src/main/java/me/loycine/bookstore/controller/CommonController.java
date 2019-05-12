@@ -20,7 +20,7 @@ public class CommonController {
 
     @RequestMapping("/test")
     public String index() {
-        return "";
+        return "test";
     }
 
     @PostMapping("/authentication")
