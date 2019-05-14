@@ -2,7 +2,7 @@ package me.loycine.bookstore.controller;
 
 import me.loycine.bookstore.common.api.JsonResult;
 import me.loycine.bookstore.common.model.User;
-import me.loycine.bookstore.service.UserService;
+import me.loycine.bookstore.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CommonController {
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Autowired
-    public CommonController(UserService userService) {
+    public CommonController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
@@ -22,6 +22,7 @@ public class CommonController {
     public String index() {
         return "test";
     }
+
 
     @PostMapping("/authentication")
     public ResponseEntity<JsonResult<?>> login(User user){
