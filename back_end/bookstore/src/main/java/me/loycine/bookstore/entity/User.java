@@ -1,4 +1,6 @@
-package me.loycine.bookstore.common.model;
+package me.loycine.bookstore.entity;
+
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
@@ -20,7 +22,9 @@ public class User {
     private Date createTime;
 
     private Integer status;
+    public User(){
 
+    }
     public User(String name, String password) {
         this.username = name;
         this.password = password;
@@ -104,5 +108,10 @@ public class User {
 
     public void setUserGender(Integer userGender) {
         this.userGender = userGender;
+    }
+
+    @Override
+    public String toString(){
+        return "username :" + this.username + " userNickname :" + this.userNickname + " userTruename : " +this.userTruename;
     }
 }

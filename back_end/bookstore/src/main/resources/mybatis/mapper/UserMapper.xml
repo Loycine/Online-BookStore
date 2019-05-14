@@ -9,7 +9,10 @@
     <!--<id column="id" property="id"/>-->
     <!--<result column="user_name" property="userName"/>-->
     <!--</resultMap>-->
-    <select id="countUserByNameAndPassword" resultType="int">
-        select count(user_id) from log_user where username=#{user.username} and password=#{user.password}
+    <select id="selectUser" resultType="me.loycine.bookstore.entity.User">
+        select * from log_user where username=#{username} and password=#{password}
     </select>
+    <insert id="insertUser">
+        insert into log_user values()
+    </insert>
 </mapper>

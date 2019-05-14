@@ -1,25 +1,30 @@
 package me.loycine.bookstore.service;
-import me.loycine.bookstore.common.model.User;
+import me.loycine.bookstore.entity.User;
 import me.loycine.bookstore.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImp {
+public class UserServiceImpl implements UserService{
+
     @Autowired
     private UserMapper userMapper;
 
-    public String login(User user) {
-        int count = userMapper.countUserByNameAndPassword(user);
-//        int count =  0;
-//        if(user.getUsername().equals("loycine") && user.getPassword().equals("123456"))
-//        {
-//            count = 1;
-//        }
-        if(count <= 0)
-        {
-            return "Failed";
+    @Override
+    public boolean login(String username, String password) {
+        User user = userMapper.selectUser(username,password);
+        //System.out.println(user.toString());
+            if(user != null ){
+            return true;
+        }else{
+            return false;
         }
-        return "Success";
     }
+
+    @Override
+    public boolean register(User user) {
+        return false;
+    }
+
+
 }

@@ -1,8 +1,10 @@
 package me.loycine.bookstore.mapper;
 
-import me.loycine.bookstore.common.model.User;
-import org.apache.ibatis.annotations.Param;
+import me.loycine.bookstore.entity.User;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserMapper {
-    int countUserByNameAndPassword(@Param("user") User user);
+    User selectUser(String username,String password);
+
 }

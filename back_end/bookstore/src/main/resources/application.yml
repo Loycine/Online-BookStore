@@ -1,3 +1,7 @@
+server:
+  port: 8080 #端口号
+  servlet:
+    path: /bookstore
 # 数据库配置
 app:
   datasource:
